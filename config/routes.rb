@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'users/show'=> "users#show"
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  get '/', to:'users#index'
 end
+
