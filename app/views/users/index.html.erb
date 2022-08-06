@@ -1,3 +1,26 @@
 <img id="background_pic" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg" alt="背景画像">
-<button id ="sign_in"><%= link_to "ログイン", :new_user_session %></button>
-<button id ="sign_up"><%= link_to "新規登録", :new_user_registration %></button>
+<% if user_signed_in? %>
+ <div id="current_user_name">
+  <%= current_user.name %>
+ </div>
+
+ <div id="current_user_image">
+ <% if @user.image.attached? %>
+ <%= image_tag @user.image, size: '50x50'%>
+ <% end %>
+ </div>
+ 
+  <input type="checkbox" id="menu">
+  <label class="menu" for="menu">メニュー</label>
+   <div id="G">
+    <%= link_to "ルーム登録", new_room_path %>
+    <%= "予約済みルーム一覧" %>
+    <%= link_to "登録済みルーム一覧", room_path(:room_id) %>
+    <%= link_to "設定", users_show_path %> 
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <%= link_to "すべてのルーム", rooms_path %> 
+   </div>
+<% else %>
+<button id ="sign_in"><%= link_to "ログイン", new_user_session_path %></button>
+<button id ="sign_up"><%= link_to "新規登録",  new_user_registration_path%></button>
+<% end %>

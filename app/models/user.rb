@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :profile, length: {maximum: 200}
+
+  attr_accessor :current_password
+  has_one_attached :image
+  has_many :rooms
 end
