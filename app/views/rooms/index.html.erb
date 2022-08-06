@@ -1,25 +1,33 @@
 <div id ="room_index">
- <h2>検索結果: 件</h2>
- <table>
-  <thead>
-   <tr>
-    <th>名前</th>
-    <th>住所</th>
-    <th>値段</th>
-    <th>詳細</th>
-    <th>投稿者(User_id)</th>
-   </tr>
-  </thead>
+<h2>検索結果: 件</h2>
+<table>
+<thead>
+ <tr>
+  <th>画像</th>
+  <th>名前</th>
+  <th>住所</th>
+  <th>値段</th>
+  <th>詳細</th>
+  <th>投稿者(User_id)</th>
+ </tr>
+</thead>
  
-  <tbody>
+<tbody>
+ <tr>
+  <td>
    <% @rooms.each do |room| %>
-    <tr>
-     <td><%= room.name %></td>
-     <td><%= room.adress %></td>
-     <td><%= room.price %></td>
-     <td>詳細(予約フォームへ飛ばす)</td>
-     <td><%= room.user_id %></td>
-    </tr>
+   <% if room.image.attached? %>
+     <%= image_tag room.image, size: '100x100' %>
+   <% else %>
+     画像なし
    <% end %>
-  </tbody>
- </table>
+  </td>
+  <td><%= room.name %></td>
+  <td><%= room.adress %></td>
+  <td><%= room.price %></td>
+  <td>詳細(予約フォームへ飛ばす)</td>
+  <td><%= room.user_id %></td>
+ </tr>
+<% end %>
+</tbody>
+</table>
