@@ -14,10 +14,9 @@
 
 <tbody>
   <tr>
-   <td>
-    <% @rooms.each do |room| %>
-    <% if room.image.attached? %>
-     <%= image_tag room.image, size: '100x100' %>
+  <% @rooms.each do |room| %>
+   <% if room.image.attached? %>
+   <td><%= image_tag room.image, size: '100x100' %>
     <% else %>
      画像なし
     <% end %>
@@ -25,7 +24,7 @@
    <td><%= room.name %></td>
    <td><%= room.adress %></td>
    <td><%= room.price %></td>
-   <td>詳細(予約フォームへ飛ばす)</td>
+   <td><%= link_to "詳細" ,reservations_new_path %></td>
    <td><%= room.user_id %></td>
   </tr>
  <% end %>

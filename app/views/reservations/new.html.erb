@@ -1,0 +1,13 @@
+<div id="reservation_new">
+ <% @rooms.each do |room| %>
+  <% if room.image.attached? %>
+   <%= image_tag room.image, size: '100x100' %>
+  <% else %>
+   画像なし
+  <% end %>
+  <%= room.name %>
+  <%= room.adress %>
+  <%= room.price %>
+ <% end %>
+
+ 

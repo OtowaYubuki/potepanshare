@@ -14,7 +14,7 @@
   <label class="menu" for="menu">メニュー</label>
    <div id="G">
     <%= link_to "ルーム登録", new_room_path %>
-    <%= "予約済みルーム一覧" %>
+    <%= link_to "予約済みルーム一覧" ,reservations_index_path %>
     <%= link_to "登録済みルーム一覧", room_path(:room_id) %>
     <%= link_to "設定", users_show_path %> 
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
