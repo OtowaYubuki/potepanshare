@@ -14,7 +14,7 @@
  
      <tr>
        <th><%= f.label :price ,"料金" %></th>
-       <td><%= f.text_field :price %></td>
+       <td><%= f.number_field :price %></td>
      </tr>
  
      <tr>
@@ -25,9 +25,8 @@
      <tr>
        <th><%= f.label :image ,"ルーム画像" %></th>
        <td><%= f.file_field :image %></td>
-     </tr>
-
-
+     </tr>     
+     
    </table>
    <div>
      <ul>

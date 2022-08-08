@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to:'users#index'
   get 'reservations/index'
-  get 'reservations/new' ,to:'reservations#create'
-  post 'reservations/confirm'
-  post 'reservations/back'
-  post 'reservations/complete'
+  post 'reservations/new', to:'reservations#create'
+  get 'reservations/confirm' # 確認画面
+  post 'reservations/back' # 確認画面から「入力画面に戻る」をクリックしたとき
+  get 'reservations/complete' 
 end
 
