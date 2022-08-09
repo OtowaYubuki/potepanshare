@@ -1,6 +1,7 @@
 <div id="room_new">
  <h2>ルーム情報登録</h2>
   <%= form_with model: @room do |f| %>
+    <%= f.hidden_field :room_id, value: @room.id %>
    <table>
      <tr>
        <th><%= f.label :name ,"ルーム名" %></th>

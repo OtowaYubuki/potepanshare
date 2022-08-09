@@ -5,16 +5,24 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @room = Room.find(params[:id])
-    @reservation = Reservation.new
+   @reservation = Reservation.new(params.permit(:startday,:endday,:people,:totalday,:totalprice,:room_id))
+   @room = Room.find(params[:room_id])
+   @user_id = current_user.id
   end
 
   def create
-    @reservation = Reservation.new(params.permit(:startday,:endday,:people,:totalday,:totalprice))
-    @reservation.room_id = Room.find(params[:id])
-    @reservation.save
-    redirect_to reservations_confirm_path
+    @reservation = Reservation.new(params.require(:reservation).permit(:startday,:endday,:people,:totalday,:totalprice,:room_id, :user_id))
+    @room = Room.find(params[:room_id])
+    if @reservation.save
+      redirect_to reservations_confirm_path
+    else
+      render "create"
+    end
+    
   end
+
+
+
 
 	def confirm
     @reservations = @reservation.room_id
@@ -29,7 +37,7 @@ class ReservationsController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:startday,:endday,:people,:totalday,:totalprice) 
+      params.require(:reservation).permit(:startday,:endday,:people,:totalday,:totalprice,:room_id) 
     end
 
 end

@@ -1,7 +1,9 @@
 <div id="reservation_new">
  <h2>部屋を予約する</h2>
-  <%= form_with model: @reservations do |f| %>
-   <table>
+  <%= form_with model: @reservation do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <table>
      <tr>
        <th><%= f.label :startday ,"開始日" %></th>
        <td><%= f.date_field :startday %></td>

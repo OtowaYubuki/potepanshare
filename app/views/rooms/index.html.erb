@@ -11,13 +11,13 @@
   <th>部屋ID</th>
  </tr>
 </thead>
- 
+
 <tbody>
  <tr>
-   <% @rooms.each do |room| %>
-   <% if room.image.attached? %>
+ <% @rooms.each do |room| %>
+    <% if room.image.attached? %>
   <td> <%= image_tag room.image, size: '100x100' %>
-   <% else %>
+    <% else %>
      画像なし
    <% end %>
   </td>
@@ -27,6 +27,6 @@
   <td><%= link_to "予約する" ,reservations_new_path %></td>
   <td><%= room.id %></td>
  </tr>
-<% end %>
+ <% end %>
 </tbody>
 </table>
