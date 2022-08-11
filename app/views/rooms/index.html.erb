@@ -1,5 +1,5 @@
 <div id ="room_index">
-<h2>検索結果: 件</h2>
+<h2>検索結果: <%= @rooms.count %>件</h2>
 <table>
 <thead>
  <tr>
@@ -7,25 +7,25 @@
   <th>名前</th>
   <th>住所</th>
   <th>値段</th>
-  <th>予約</th>
   <th>部屋ID</th>
+  <th>予約</th>
  </tr>
 </thead>
 
 <tbody>
  <tr>
  <% @rooms.each do |room| %>
-    <% if room.image.attached? %>
-  <td> <%= image_tag room.image, size: '100x100' %>
-    <% else %>
-     画像なし
-   <% end %>
+  <% if room.image.attached? %>
+  <td><%= image_tag room.image, size: '100x100' %></td>
+  <% else %>
+  <td>画像なし
+  <% end %>
   </td>
   <td><%= room.name %></td>
   <td><%= room.adress %></td>
   <td><%= room.price %></td>
-  <td><%= link_to "予約する" ,reservations_new_path %></td>
   <td><%= room.id %></td>
+  <td><%= link_to "予約する", {controller: 'reservations', action: 'new', id: room.id} %></td>
  </tr>
  <% end %>
 </tbody>

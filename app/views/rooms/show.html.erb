@@ -24,7 +24,7 @@
    <td><%= room.name %></td>
    <td><%= room.adress %></td>
    <td><%= room.price %></td>
-   <td><%= link_to "詳細" ,reservations_new_path %></td>
+   <td><%= link_to "予約する", {controller: 'reservations', action: 'new', id: room.id} %></td>
    <td><%= room.user_id %></td>
   </tr>
  <% end %>

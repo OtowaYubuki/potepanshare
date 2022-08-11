@@ -1,22 +1,19 @@
 <div id="reservation_confirm">
- <h2>予約内容確認</h2>
-  <table>
-   <thead>
-    <tr>
-     <th>開始日</th>
-     <th>終了日</th>
-     <th>人数</th>
-    </tr>
-   </thead>
-
-   <tbody>
-    <tr>
-     <% @reservations.each do |reservation| %>
-      <td><%= reservation.startday %></td>
-      <td><%= reservation.endday %></td>
-      <td><%= reservation.people %></td>
-    </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+<h2>予約内容確認</h2>
+<table>
+  <tr>
+    <th>開始</th>
+    <td id><%= @reservation.startday %></td>
+  </tr>
+  <tr>
+    <th>終了日</th>
+    <td><%= @reservation.endday %></td>
+  </tr>
+  <tr>
+    <th>人数</th>
+    <td><%= @reservation.people %></td>
+  </tr>
+</table>
+<%= form_with model: @reservation, method: :post, url: reservations_complete_path do |f| %>    
+  <%= f.submit "送信する"%>
+  <% end %>
