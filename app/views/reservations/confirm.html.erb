@@ -1,8 +1,12 @@
 <div id="reservation_confirm">
-<h2>予約内容確認</h2>
+<h2>予約しました</h2>
 <table>
   <tr>
-    <th>開始</th>
+  <th>予約した部屋</th>
+  <td id><%= @room.name %></td>
+  </tr>
+  <tr>
+  <th>開始</th>
     <td id><%= @reservation.startday %></td>
   </tr>
   <tr>
@@ -14,6 +18,3 @@
     <td><%= @reservation.people %></td>
   </tr>
 </table>
-<%= form_with model: @reservation, method: :post, url: reservations_complete_path do |f| %>    
-  <%= f.submit "送信する"%>
-  <% end %>

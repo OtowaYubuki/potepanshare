@@ -1,12 +1,8 @@
-<div id ="room_index">
+<div id ="reservation_index">
 <h2>予約済みルーム一覧</h2>
 <table>
 <thead>
  <tr>
-  <th>ルーム画像</th>
-  <th>ルーム名</th>
-  <th>ルーム紹介</th>
-  <th>合計料金</th>
   <th>開始日</th>
   <th>終了日</th>
   <th>予約確定日時</th>
@@ -15,22 +11,12 @@
  
 <tbody>
  <tr>
-   <% @rooms.each do |room| %>
-   <% if room.image.attached? %>
-  <td> <%= image_tag room.image, size: '100x100' %>
-   <% else %>
-     画像なし
-   <% end %>
-  </td>
-  <td><%= room.name %></td>
-  <td><%= room.introduction %></td>
-  <% end %>
-  <% @reservations.each do |reservation| %>
-    <td><%= reservation.totalprice %></td>
-    <td><%= reservation.startday %></td>
-    <td><%= reservation.endday %></td>
-    <td><%= reservation.created_at %></td>
+ <% @reservations.each do |reservation| %>
+  <td><%= reservation.startday %></td>
+  <td><%= reservation.endday %></td>
+  <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
  </tr>
 <% end %>
 </tbody>
 </table>
+
