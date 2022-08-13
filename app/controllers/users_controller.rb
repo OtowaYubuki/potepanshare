@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def index
     @user = current_user
     @users = User.all
@@ -13,4 +12,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:image)
   end
+
 end

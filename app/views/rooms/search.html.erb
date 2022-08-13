@@ -1,4 +1,4 @@
-<div id ="room_index">
+<div id="search_room">
 <h2>検索結果: <%= @rooms.count %>件</h2>
 <table>
 <thead>
@@ -9,7 +9,6 @@
   <th>ルーム紹介</th>
   <th>値段</th>
   <th>予約</th>
-  <th>投稿者</th>
  </tr>
 </thead>
 
@@ -27,8 +26,9 @@
   <td><%= room.introduction %></td>
   <td><%= room.price %></td>
   <td><%= link_to "予約する", {controller: 'reservations', action: 'new', id: room.id} %></td>
-  <td><%= room.user.name %></td>
  </tr>
-<% end %>
+ <% end %>
 </tbody>
 </table>
+</div>
+

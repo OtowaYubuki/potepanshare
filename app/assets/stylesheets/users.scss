@@ -47,7 +47,6 @@ footer{
        position: absolute;
        top: 25px;
        right: 140px;
-       border-radius: .25rem;
        color: #fff;
        background-color: #4A90E2;
        border-color: #4A90E2;
@@ -95,7 +94,7 @@ footer{
     display: inline-block;
     padding: 5px 10px;
     cursor: pointer;
-    color: #fff;
+    color: rgb(49, 104, 233);
 }
 
 #G{
@@ -147,3 +146,70 @@ footer{
     right: 120px;
 }
 
+#area_search{
+    position: absolute;
+    top:200px;
+    left:200px;
+    color: #fff;
+}
+
+#area_search_header{
+    position: absolute;
+    top:30px;
+    left:250px;
+}
+
+#keyword_search_header{
+    position: absolute;
+    top:30px;
+    left:500px;
+}
+
+::placeholder{
+    color:#aaa
+  }
+
+a{
+display: block;
+  }
+
+#recomend_area{
+    position: absolute;
+    top:700px;
+    left:100px;
+}
+
+#image{
+    position: absolute;
+    top:800px;
+    left:100px;
+}
+
+
+#tokyo_text{
+    position: absolute;
+    top:980px;
+    left:210px;
+    color: #fff;
+}
+
+#osaka_text{
+    position: absolute;
+    top:980px;
+    left:520px;
+    color: #fff;
+}
+
+#kyoto_text{
+    position: absolute;
+    top:980px;
+    left:810px;
+    color: #fff;
+}
+
+#sapporo_text{
+    position: absolute;
+    top:980px;
+    left:1120px;
+    color: #fff;
+}

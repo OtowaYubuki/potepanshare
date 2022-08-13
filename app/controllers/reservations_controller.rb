@@ -1,35 +1,34 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all
-    binding.pry
-    @rooms = Room.all
-    binding.pry
+    @reservations = Reservation.where(user_id: current_user.id)
   end
 
   def new
    @room = Room.find(params[:id])
-   @reservation = Reservation.new
    @user_id = current_user.id
+   @reservation = Reservation.new
   end
 
   def create
-    @reservation = Reservation.new(params.require(:reservation).permit(:startday,:endday,:people,:totalday,:totalprice,:room_id))
+    @reservation = Reservation.new(reservation_params)
+    @reservation.user_id = current_user.id
+    @totalprice = @reservation.room.price * @reservation.people * (@reservation.endday - @reservation.startday).to_i
     if @reservation.save
-      redirect_to reservation_confirm_path
+      flash[:notice] = "予約が完了しました"
+      redirect_to reservation_path(@reservation.id)
     else
       render :new
     end
     
   end
 
-	def confirm
-    @room = Room.find(params[:reservation][:room_id])
-    @reservation = Reservation.new(params.require(:reservation).permit(:startday,:endday,:people,:totalday,:totalprice,:room_id))
+	def show
+    @reservation = Reservation.find(params[:id])
   end
 
   private
     def reservation_params
-      params.require(:reservation).permit(:startday,:endday,:room_id).merge(user_id: current_user.id)
+      params.require(:reservation).permit(:startday,:endday,:people,:totalday,:totalprice,:room_id).merge(user_id: current_user.id)
     end
 
 end

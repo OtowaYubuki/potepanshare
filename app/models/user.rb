@@ -10,4 +10,5 @@ class User < ApplicationRecord
   attr_accessor :current_password
   has_one_attached :image
   has_many :rooms
+  has_many :reservations
 end

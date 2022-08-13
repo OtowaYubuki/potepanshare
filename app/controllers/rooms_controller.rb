@@ -26,6 +26,10 @@ class RoomsController < ApplicationController
 
   def destroy
   end
+  
+  def search
+    @rooms = Room.search(params[:search])
+  end
 
   private
   def room_params

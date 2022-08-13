@@ -8,7 +8,7 @@
   <th>住所</th>
   <th>値段</th>
   <th>詳細</th>
-  <th>投稿者(User_id)</th>
+  <th>投稿者</th>
  </tr>
 </thead>
 
@@ -25,7 +25,7 @@
    <td><%= room.adress %></td>
    <td><%= room.price %></td>
    <td><%= link_to "予約する", {controller: 'reservations', action: 'new', id: room.id} %></td>
-   <td><%= room.user_id %></td>
+   <td><%= current_user.name %></td>
   </tr>
  <% end %>
 </tbody>
