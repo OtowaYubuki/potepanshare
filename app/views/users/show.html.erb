@@ -1,0 +1,19 @@
+<div id="user_show">
+ <h3>プロフィール画像:</h3>
+ <div id="picture">
+ <% if @user.image.attached? %>
+ <%= image_tag @user.image, size: '100x100'%>
+ </div> 
+ <% else %>
+    画像なし
+ <% end %>
+ <h3>ユーザー名</h3>
+ <%= @user.name %>
+ <h3>メールアドレス</h3>
+ <%= @user.email %>
+ <h3>パスワード</h3>
+ <p>******</p>
+ <h3>自己紹介</h3>
+ <%= @user.profile%>
+ <button id ="user_edit"><%= link_to "編集する", edit_user_registration_path %></button>
+</div>

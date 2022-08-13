@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  startday: 2022-08-07
+  endday: 2022-08-07
+  totalday: 1
+  people: 1
+  totalprice: 1
+
+two:
+  startday: 2022-08-07
+  endday: 2022-08-07
+  totalday: 1
+  people: 1
+  totalprice: 1

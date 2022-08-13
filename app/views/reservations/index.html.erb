@@ -1,0 +1,33 @@
+<div id ="reservation_index">
+<h2>予約履歴</h2>
+<table>
+<thead>
+  <th>予約した部屋</th>
+  <th>部屋名</th>
+  <th>開始日</th>
+  <th>終了日</th>
+  <th>予約確定日時</th>
+ </tr>
+</thead>
+ 
+<tbody>
+ <tr>
+ <% @reservations.each do |reservation| %> 
+  <% @rooms = Room.where(id: reservation.room_id) %>
+  <% @rooms.each do |room| %>
+    <% if room.image.attached? %>
+    <td><%= image_tag room.image, size: '100x100' %>
+     <% else %>
+      画像なし
+     <% end %>
+    </td>
+  <td><%= reservation.room.name %></td>
+  <td><%= reservation.startday %></td>
+  <td><%= reservation.endday %></td>
+  <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
+ </tr>
+<% end %>
+<% end %>
+</tbody>
+</table>
+

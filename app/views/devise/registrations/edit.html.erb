@@ -1,0 +1,54 @@
+<div id="edit_user_page">
+ <h2>アカウント編集</h2>
+ <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+   <%= render "devise/shared/error_messages", resource: resource %>
+
+   <div class="field">
+    <%= f.label :プロフィール画像 %>
+    <%= f.file_field :image %>
+   </div>
+   
+   <div class="field">
+    <%= f.label :名前 %><br />
+    <%= f.text_field :name, autofocus: true %>
+   </div>
+
+   <div class="field">
+     <%= f.label :メールアドレス %><br />
+     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+   </div>
+
+   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+   <% end %>
+
+   <div class="field">
+     <%= f.label :パスワード %> <i>6文字以上 (変更したくない場合は空白のままにしてください)</i><br />
+     <%= f.password_field :password, autocomplete: "new-password" %>
+     <% if @minimum_password_length %>
+       <br />
+     <% end %>
+   </div>
+
+   <div class="field">
+     <%= f.label :パスワード確認 %><br />
+     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+   </div>
+
+   <div class="field">
+     <%= f.label :現在のパスワード %> <i>(変更を確認するには、現在のパスワードが必要です)</i><br />
+     <%= f.password_field :current_password, autocomplete: "current-password" %>
+   </div>
+
+   <div class="field">
+    <%= f.label :プロフィール %><br />
+    <%= f.text_area :profile, autofocus: true %>
+   </div>
+
+
+   <div class="actions">
+     <%= f.submit "更新する" %>
+   </div>
+ <% end %>
+ <%= link_to "戻る", :back %>
+ </div> 

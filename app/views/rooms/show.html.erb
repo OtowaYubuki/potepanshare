@@ -1,0 +1,32 @@
+<div id ="show_room">
+<h2>登録済みルーム一覧</h2>
+<table>
+<thead>
+ <tr>
+  <th>画像</th>
+  <th>名前</th>
+  <th>住所</th>
+  <th>値段</th>
+  <th>詳細</th>
+  <th>投稿者</th>
+ </tr>
+</thead>
+
+<tbody>
+  <tr>
+  <% @rooms.each do |room| %>
+   <% if room.image.attached? %>
+   <td><%= image_tag room.image, size: '100x100' %>
+    <% else %>
+     画像なし
+    <% end %>
+   </td>
+   <td><%= room.name %></td>
+   <td><%= room.adress %></td>
+   <td><%= room.price %></td>
+   <td><%= link_to "予約する", {controller: 'reservations', action: 'new', id: room.id} %></td>
+   <td><%= current_user.name %></td>
+  </tr>
+ <% end %>
+</tbody>
+</table>

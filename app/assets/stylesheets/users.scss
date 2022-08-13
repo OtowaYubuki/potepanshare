@@ -1,0 +1,215 @@
+header{
+    width: 100%;
+    height: 70px;
+    padding: 4px 30px;
+    background-color: #000000;
+    position: absolute;
+    top:0;
+    left:0;
+   }
+   
+footer{
+    position: absolute;
+    left:0;
+    top: 1300px;
+    width: 100%;
+    height: 180px;
+    margin-top: 64px;
+    padding-top: 90px;
+    background-color: #111;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+   }
+
+#background_pic{
+    position: absolute;
+    width: 100%;
+    left:0px;
+    top:79px;
+   }
+
+#sign_up{
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    border-radius: .25rem;
+    color: #fff;
+    background-color: #6C757D;
+    border-color: #6C757D;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border: none;
+   }
+
+#sign_in{
+       position: absolute;
+       top: 25px;
+       right: 140px;
+       color: #fff;
+       background-color: #4A90E2;
+       border-color: #4A90E2;
+       width: 100px;
+       height: 40px;
+       font-size: 15px;
+       border: none;
+      }
+
+
+#signin{
+    position: absolute;
+    top:100px;
+    left:20px;
+    color: #000000;
+}
+
+#signup{
+    position: absolute;
+    top:100px;
+    left:20px; 
+}
+
+#current_user_name{
+    position: absolute;
+    top:30px;
+    right:200px;
+    color: #fff;
+}
+
+#current_user_image{
+    position: absolute;
+    top:30px;
+    right:200px; 
+}
+
+#menu {
+    display: none;
+}
+
+.menu{
+    position: absolute;
+    top:40px;
+    right: 100px;
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: rgb(49, 104, 233);
+}
+
+#G{
+    position: absolute;
+    top: 78px;
+    right: 60px;
+    background: #fff;
+    height: 230px;
+    width: 160px;
+}
+#menu:checked+label+#G{
+    display: none;
+}
+
+#user_show{
+    position: absolute;
+    top:200px;
+}
+
+#user_edit{
+    position: absolute;
+    top:400px;
+    left:10px;
+    border-radius: .25rem;
+    color: #fff;
+    background-color: #4A90E2;
+    border-color: #4A90E2;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    border: none;
+}
+
+#edit_user_page{
+    position: absolute;
+    top:100px;
+}
+
+#picture{
+    position: absolute;
+    top:20px;
+    left: 170px;
+    
+}
+
+#current_user_image{
+    position: absolute;
+    top:20px;
+    right: 120px;
+}
+
+#area_search{
+    position: absolute;
+    top:200px;
+    left:200px;
+    color: #fff;
+}
+
+#area_search_header{
+    position: absolute;
+    top:30px;
+    left:250px;
+}
+
+#keyword_search_header{
+    position: absolute;
+    top:30px;
+    left:500px;
+}
+
+::placeholder{
+    color:#aaa
+  }
+
+a{
+display: block;
+  }
+
+#recomend_area{
+    position: absolute;
+    top:700px;
+    left:100px;
+}
+
+#image{
+    position: absolute;
+    top:800px;
+    left:100px;
+}
+
+
+#tokyo_text{
+    position: absolute;
+    top:980px;
+    left:210px;
+    color: #fff;
+}
+
+#osaka_text{
+    position: absolute;
+    top:980px;
+    left:520px;
+    color: #fff;
+}
+
+#kyoto_text{
+    position: absolute;
+    top:980px;
+    left:810px;
+    color: #fff;
+}
+
+#sapporo_text{
+    position: absolute;
+    top:980px;
+    left:1120px;
+    color: #fff;
+}

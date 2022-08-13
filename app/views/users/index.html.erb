@@ -1,0 +1,64 @@
+<img id="background_pic" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg" alt="背景画像">
+ <h2 id="recomend_area" >おすすめのエリア</h2>
+
+ <div id="image">
+   <img id="tokyo" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg" alt="東京" width="292" height="243">
+   <img id="osaka" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg" alt="大阪" width="292" height="243">
+   <img id="kyoto" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg" alt="京都" width="292" height="243">
+   <img id="sapporo" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg" alt="札幌" width="292" height="243">
+ </div>
+
+   <h2 id="tokyo_text">東京</h2>
+   <h2 id="osaka_text">大阪</h2>
+   <h2 id="kyoto_text">京都</h2>
+   <h2 id="sapporo_text">札幌</h2>
+
+<% if user_signed_in? %>
+ <div id="current_user_name">
+  <%= current_user.name %>
+ </div>
+
+ <div id="current_user_image">
+ <% if @user.image.attached? %>
+ <%= image_tag @user.image, size: '50x50'%>
+ <% end %>
+ </div>
+ 
+  <input type="checkbox" id="menu">
+  <label class="menu" for="menu">メニュー</label>
+   <div id="G">
+    <%= link_to "ルーム登録", new_room_path %>
+    <%= link_to "予約履歴" ,reservations_path %>
+    <%= link_to "登録済みルーム一覧", room_path(:room_id) %>
+    <%= link_to "設定", users_show_path %> 
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <%= link_to "すべてのルーム", rooms_path %> 
+   </div>
+
+   <div id="area_search">
+    <h1>Potepan Shareでまだ体験したことのない旅をしよう</h1>
+    <%= form_tag(search_rooms_path,:method => 'get') do %>
+      <%= label_tag '都道府県で検索' %>
+      <%= text_field_tag :search %>
+      <%= submit_tag 'Search', :adress => nil %>
+    <% end %>
+   </div>
+
+  <div id="area_search_header">
+   <%= form_tag(search_rooms_path,:method => 'get') do %>
+     <%= text_field_tag :search %>
+     <%= submit_tag 'エリア検索', :adress => nil %>
+   <% end %>
+  </div>
+
+  <div id="keyword_search_header">
+   <%= form_tag(search_rooms_path,:method => 'get') do %>
+     <%= text_field_tag :search %>
+     <%= submit_tag 'キーワード検索' %>
+   <% end %>
+  </div>
+
+<% else %>
+<button id ="sign_in"><%= link_to "ログイン", new_user_session_path %></button>
+<button id ="sign_up"><%= link_to "新規登録",  new_user_registration_path%></button>
+<% end %>
